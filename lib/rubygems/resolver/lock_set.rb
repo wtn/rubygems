@@ -66,10 +66,10 @@ class Gem::Resolver::LockSet < Gem::Resolver::Set
   def pretty_print(q) # :nodoc:
     q.group 2, "[LockSet", "]" do
       q.breakable
-      q.text "source:"
+      q.text "sources:"
 
       q.breakable
-      q.pp @source
+      q.pp @sources
 
       q.breakable
       q.text "specs:"

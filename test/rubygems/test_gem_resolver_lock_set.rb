@@ -59,4 +59,15 @@ class TestGemResolverLockSet < Gem::TestCase
   def test_prefetch
     assert_respond_to @set, :prefetch
   end
+
+  def test_pretty_print
+    @set.add "a", "2", Gem::Platform::RUBY
+
+    output = @set.pretty_inspect
+
+    assert_match(/sources:/, output)
+    assert_match(/Gem::Source/, output)
+    assert_match(/specs:/, output)
+    assert_match(/a-2/, output)
+  end
 end
